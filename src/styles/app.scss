@@ -1,0 +1,13 @@
+@import 'core/_directional.scss';
+@import "core/_variables-custom.scss";
+@import "core/_mixins-custom.scss";
+@import "core/_bootstrap-custom.scss";
+@import "core/_responsive-align.scss";
+@import "~font-awesome/scss/font-awesome.scss";
+@import "core/theme/theme";
+
+section {
+  float: $default;
+  width: 50%;
+  background-color: red;
+}

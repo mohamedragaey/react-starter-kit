@@ -1,18 +1,23 @@
-const CleanWebPackPlugin = require('clean-webpack-plugin')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const CleanWebPackPlugin = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: ['./src/index.js', './src/styles/app.scss']
   },
+
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve('./dist')
+    filename: 'js/app.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/'
   },
+
   module: {
     rules: [
-      // set up standard-loader as a preloader for JS Standard
+      // Rule For JS Standard
       {
         enforce: 'pre',
         test: /\.jsx?$/,
@@ -27,28 +32,93 @@ module.exports = {
           parser: 'babel-eslint'
         }
       },
+
+      // Rule For JS
       {
         test: /\.js$/,
         exclude: ['node_modules'],
         use: [{
           loader: 'babel-loader'
         }]
-      }, {
+      },
+
+      // Rule For SCSS/SASS/CSS
+      {
         test: /\.s(a|c)ss$/,
         exclude: ['node_modules'],
         use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'},
-          {loader: 'sass-loader'},
-          {loader: 'postcss-loader'}
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
         ]
+      },
+
+      // Rule for images
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/'
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              optipng: {
+                enabled: true,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              webp: {
+                quality: 75
+              }
+            },
+          },
+        ]
+      },
+
+      // Rule for Fonts
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'fonts/'
+        }
       }
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: 'index.html'
+    new CleanWebPackPlugin(['dist']),
+    new MiniCssExtractPlugin({
+      filename: devMode ? 'css/app.css' : 'css/app.css',
+      chunkFilename: '[id].css'
     }),
-    new CleanWebPackPlugin(['dist'])
+
+    // Copy Fonts and Images From src to assets
+    new CopyWebpackPlugin([
+      {from: 'src/fonts', to: './fonts'},
+      {from: 'src/images', to: './images'},
+      {from: 'src/favicon', to: './favicon'}
+    ], {
+      // By default, we only copy modified files during
+      // a watch or webpack-dev-server build. Setting this
+      // to `true` copies all files.
+      copyUnmodified: false
+    }),
   ]
 }

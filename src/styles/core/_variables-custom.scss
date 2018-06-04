@@ -1,0 +1,25 @@
+// Brands
+$brand-primary: #3B5998;
+$brand-info: #8eb4cb;
+$brand-success: #6eaf75;
+$brand-warning: #e58007;
+$brand-danger: #c61832;
+$brand-default: #e6e7e7;
+$white: #ffffff;
+$black: #000;
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "~font-awesome/fonts";
+$font-family-sans-serif: 'sans-serif';
+$font-family-serif: 'serif';
+$font-size-base: 16px;
+
+$transition-time: 0.3s;
+
+// Include Mappy Breakpoints
+$breakpoints: (
+        'xs': 480px,
+        'sm': 768px,
+        'md': 992px,
+        'lg': 1200px);
