@@ -6,7 +6,8 @@ const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
-    main: ['./src/index.js', './src/styles/app.scss']
+    main: ['./src/index.js', './src/styles/app.scss'],
+    vendor: ['babel-polyfill', 'react', 'react-dom']
   },
 
   output: {
@@ -15,6 +16,18 @@ module.exports = {
     publicPath: '/dist/'
   },
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendor',
+          enforce: true,
+          chunks: 'all',
+        },
+      }
+    },
+    runtimeChunk: true
+  },
   module: {
     rules: [
       // Rule For JS Standard
@@ -47,10 +60,11 @@ module.exports = {
         test: /\.s(a|c)ss$/,
         exclude: ['node_modules'],
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          // devMode ? 'style-loader' :
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          'postcss-loader'
         ]
       },
 
@@ -104,11 +118,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebPackPlugin(['dist']),
-    new MiniCssExtractPlugin({
-      filename: devMode ? 'css/app.css' : 'css/app.css',
-      chunkFilename: '[id].css'
-    }),
-
+    new MiniCssExtractPlugin({filename: devMode ? 'css/app.css' : 'css/app.css'}),
     // Copy Fonts and Images From src to assets
     new CopyWebpackPlugin([
       {from: 'src/fonts', to: './fonts'},
@@ -119,6 +129,6 @@ module.exports = {
       // a watch or webpack-dev-server build. Setting this
       // to `true` copies all files.
       copyUnmodified: false
-    }),
-  ]
+    })
+  ],
 }
