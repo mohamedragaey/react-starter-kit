@@ -8,7 +8,7 @@ module.exports = {
 
   entry: {
     main: ['./src/index.js', './src/styles/app.scss'],
-    vendor: ['babel-polyfill', 'react', 'react-dom']
+    vendor: ['babel-polyfill', 'react', 'react-dom', 'jquery', 'bootstrap-sass-multi-directional']
   },
 
   output: {
