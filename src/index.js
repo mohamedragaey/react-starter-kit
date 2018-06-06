@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
-
-require('./js/script')
+import './js/script'
 
 ReactDOM.render(
   <App />,
