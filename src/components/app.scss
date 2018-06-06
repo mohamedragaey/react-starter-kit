@@ -1,3 +1,9 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .heading {
   text-align: center;
 }
