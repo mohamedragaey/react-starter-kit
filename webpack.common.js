@@ -3,20 +3,21 @@ const CleanWebPackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackRTLPlugin = require('webpack-rtl-plugin')
+const Visualizer = require('webpack-visualizer-plugin')
 
 module.exports = {
-
+  
   entry: {
     main: ['./src/index.js', './src/styles/app.scss'],
     vendor: ['babel-polyfill', 'react', 'react-dom', 'jquery', 'bootstrap-sass-multi-directional']
   },
-
+  
   output: {
     filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/'
   },
-
+  
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -46,7 +47,7 @@ module.exports = {
           parser: 'babel-eslint'
         }
       },
-
+      
       // Rule For JS
       {
         test: /\.js$/,
@@ -55,7 +56,7 @@ module.exports = {
           loader: 'babel-loader'
         }]
       },
-
+      
       // Rule For SCSS/SASS/CSS
       {
         test: /\.(sa|sc|c)ss$/,
@@ -67,7 +68,7 @@ module.exports = {
           'sass-loader', // compiles Sass to CSS
         ]
       },
-
+      
       // Rule for images
       {
         test: /\.(png|jpg|gif)$/,
@@ -104,7 +105,7 @@ module.exports = {
           },
         ]
       },
-
+      
       // Rule for Fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
@@ -117,22 +118,24 @@ module.exports = {
     ]
   },
   plugins: [
-
+    
     new CleanWebPackPlugin(['dist']),
-
+    
     new MiniCssExtractPlugin({filename: '[name].css', chunkFilename: 'css/app.css'}),
-
+    
     new WebpackRTLPlugin({
       filename: 'css/app-rtl.css',
       diffOnly: false,
       minify: process.env.NODE_ENV !== 'production' ? false : true,
     }),
-
+    
     new CopyWebpackPlugin([
         {from: 'src/fonts', to: './fonts'},
         {from: 'src/images', to: './images'},
         {from: 'src/favicon', to: './favicon'}
       ],
-      {copyUnmodified: false})
-  ],
+      {copyUnmodified: false}),
+    
+    new Visualizer()
+  ]
 }
