@@ -1,6 +1,5 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
-const WebpackRTLPlugin = require('webpack-rtl-plugin')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -24,12 +23,5 @@ module.exports = merge(common, {
       warnings: true,
       publicPath: true
     }
-  },
-  plugins: [
-    new WebpackRTLPlugin({
-      filename: 'css/app-rtl.css',
-      diffOnly: false,
-      minify: false
-    })
-  ]
+  }
 })

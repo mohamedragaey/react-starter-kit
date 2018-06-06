@@ -2,16 +2,17 @@ const path = require('path')
 const CleanWebPackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const devMode = process.env.NODE_ENV !== 'production'
+const WebpackRTLPlugin = require('webpack-rtl-plugin')
 
 module.exports = {
+
   entry: {
     main: ['./src/index.js', './src/styles/app.scss'],
     vendor: ['babel-polyfill', 'react', 'react-dom']
   },
 
   output: {
-    filename: 'js/app.js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/'
   },
@@ -57,14 +58,13 @@ module.exports = {
 
       // Rule For SCSS/SASS/CSS
       {
-        test: /\.s(a|c)ss$/,
+        test: /\.(sa|sc|c)ss$/,
         exclude: ['node_modules'],
         use: [
-          // devMode ? 'style-loader' :
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-          'postcss-loader'
+          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',  // translates CSS into CommonJS
+          'postcss-loader',
+          'sass-loader', // compiles Sass to CSS
         ]
       },
 
@@ -117,18 +117,22 @@ module.exports = {
     ]
   },
   plugins: [
+
     new CleanWebPackPlugin(['dist']),
-    new MiniCssExtractPlugin({filename: devMode ? 'css/app.css' : 'css/app.css'}),
-    // Copy Fonts and Images From src to assets
+
+    new MiniCssExtractPlugin({filename: '[name].css', chunkFilename: 'css/app.css'}),
+
+    new WebpackRTLPlugin({
+      filename: 'css/app-rtl.css',
+      diffOnly: false,
+      minify: process.env.NODE_ENV !== 'production' ? false : true,
+    }),
+
     new CopyWebpackPlugin([
-      {from: 'src/fonts', to: './fonts'},
-      {from: 'src/images', to: './images'},
-      {from: 'src/favicon', to: './favicon'}
-    ], {
-      // By default, we only copy modified files during
-      // a watch or webpack-dev-server build. Setting this
-      // to `true` copies all files.
-      copyUnmodified: false
-    })
+        {from: 'src/fonts', to: './fonts'},
+        {from: 'src/images', to: './images'},
+        {from: 'src/favicon', to: './favicon'}
+      ],
+      {copyUnmodified: false})
   ],
 }
