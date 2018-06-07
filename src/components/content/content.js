@@ -1,13 +1,7 @@
 import React, {Component} from 'react'
 import ErrorBoundary from './../ErrorBoundary'
-import Loadable from 'react-loadable'
-import Loading from '../loading/loading'
+import Card from './../card/card'
 import './content.scss'
-
-const Cards = Loadable({
-  loader: () => import('./../header/header'),
-  loading: Loading
-})
 
 class Content extends Component {
   render () {
@@ -17,7 +11,7 @@ class Content extends Component {
           <div className='row'>
             <div className='col-xs-12 col-sm-3 col-md-4'>
               <ErrorBoundary>
-                <Cards />
+                <Card />
               </ErrorBoundary>
             </div>
           </div>
