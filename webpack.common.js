@@ -126,7 +126,7 @@ module.exports = {
     new WebpackRTLPlugin({
       filename: 'css/app-rtl.css',
       diffOnly: false,
-      minify: process.env.NODE_ENV !== 'production' ? false : true,
+      minify: process.env.NODE_ENV === 'production',
     }),
 
     new CopyWebpackPlugin([

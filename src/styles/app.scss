@@ -1,7 +1,5 @@
-@import 'core/_directional.scss';
-@import "core/_variables-custom.scss";
-@import "core/_mixins-custom.scss";
-@import "core/_bootstrap-custom.scss";
-@import "core/_responsive-align.scss";
-@import "~font-awesome/scss/font-awesome.scss";
-@import "core/theme/theme";
+@import "core/_variables-custom";
+@import "core/_mixins-custom";
+@import "core/_bootstrap-custom";
+@import "core/_responsive-align";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome";
