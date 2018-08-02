@@ -38,7 +38,8 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  display: flex;
+  flex-direction: column;
 }
 
 /*
@@ -88,6 +89,12 @@ body {
  */
 .cover {
   padding: 0 1.5rem;
+  flex: 1 1 auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cover .btn-lg {

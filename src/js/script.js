@@ -5,6 +5,7 @@
 try {
   window.$ = window.jQuery = require('jquery')
   require('./bootstrap-sass')
+  require('./partials/hashLocation')
 } catch (e) {
   console.log('Error Message: ' + e.message)
 }
