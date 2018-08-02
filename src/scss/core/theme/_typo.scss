@@ -1,0 +1,31 @@
+h1, .h1 { font-size: floor(($font-size-base * 1.45)); }
+h2, .h2 { font-size: floor(($font-size-base * 1.30)); }
+h3, .h3 { font-size: ceil(($font-size-base * 1.10)); }
+h4, .h4 { font-size: ceil(($font-size-base * 1)); }
+h5, .h5 { font-size: ceil(($font-size-base * 0.90)); }
+h6, .h6 { font-size: ceil(($font-size-base * 0.70)); }
+
+@include bp(sm){
+  h1, .h1 { font-size: floor(($font-size-base * 1.80)); }
+  h2, .h2 { font-size: floor(($font-size-base * 1.36)); }
+  h3, .h3 { font-size: ceil(($font-size-base * 1.11)); }
+  h4, .h4 { font-size: ceil(($font-size-base * 1)); }
+  h5, .h5 { font-size: ceil(($font-size-base * 0.80)); }
+  h6, .h6 { font-size: ceil(($font-size-base * 0.75)); }
+}
+@include bp(md){
+  h1, .h1 { font-size: floor(($font-size-base * 2.27)); }
+  h2, .h2 { font-size: floor(($font-size-base * 1.82)); }
+  h3, .h3 { font-size: ceil(($font-size-base * 1.37)); }
+  h4, .h4 { font-size: ceil(($font-size-base * 1)); }
+  h5, .h5 { font-size: ceil(($font-size-base * 0.92)); }
+  h6, .h6 { font-size: ceil(($font-size-base * 0.80)); }
+}
+@include bp(lg){
+  h1, .h1 { font-size: floor(($font-size-base * 2.6)); }
+  h2, .h2 { font-size: floor(($font-size-base * 2.15)); }
+  h3, .h3 { font-size: ceil(($font-size-base * 1.70)); }
+  h4, .h4 { font-size: ceil(($font-size-base * 1.25)); }
+  h5, .h5 { font-size: ceil(($font-size-base * 1)); }
+  h6, .h6 { font-size: ceil(($font-size-base * 0.85)); }
+}

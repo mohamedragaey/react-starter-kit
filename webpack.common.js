@@ -8,8 +8,7 @@ const Visualizer = require('webpack-visualizer-plugin')
 module.exports = {
 
   entry: {
-    main: ['./src/index.js', './src/styles/app.scss'],
-    vendor: ['react', 'react-dom']
+    main: ['./src/js/script.js', './src/scss/app.scss']
   },
 
   output: {
@@ -18,18 +17,6 @@ module.exports = {
     publicPath: '/dist/'
   },
 
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          name: 'vendor',
-          enforce: true,
-          chunks: 'all',
-        },
-      }
-    },
-    runtimeChunk: true
-  },
   module: {
     rules: [
       // Rule For JS Standard
@@ -121,7 +108,7 @@ module.exports = {
 
     new CleanWebPackPlugin(['dist']),
 
-    new MiniCssExtractPlugin({filename: '[name].css', chunkFilename: 'css/app.css'}),
+    new MiniCssExtractPlugin({filename: 'css/app.css', chunkFilename: 'css/app.css'}),
 
     new WebpackRTLPlugin({
       filename: 'css/app-rtl.css',
