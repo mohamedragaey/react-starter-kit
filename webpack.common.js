@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackRTLPlugin = require('webpack-rtl-plugin')
 const Visualizer = require('webpack-visualizer-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = {
 
@@ -136,6 +137,8 @@ module.exports = {
       ],
       {copyUnmodified: false}),
 
-    new Visualizer()
+    new Visualizer(),
+
+    new DashboardPlugin()
   ]
 }
