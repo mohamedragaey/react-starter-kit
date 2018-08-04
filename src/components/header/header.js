@@ -1,59 +1,85 @@
 import React, {Component} from 'react'
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarNav,
+  NavbarToggler,
+  Collapse,
+  NavItem,
+  NavLink,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from 'mdbreact'
+import {BrowserRouter as Router} from 'react-router-dom'
 import './header.scss'
 
 class Header extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      collapse: false,
+      isWideEnough: false,
+      dropdownOpen: false
+    }
+    this.onClick = this.onClick.bind(this)
+    this.toggle = this.toggle.bind(this)
+  }
+
+  onClick () {
+    this.setState({
+      collapse: !this.state.collapse
+    })
+  }
+
+  toggle () {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    })
+  }
+
   render () {
     return (
-      <header className='header'>
-        <nav className='navbar navbar-default'>
-          <div className='container-fluid'>
-            <div className='navbar-header'>
-              <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>
-                <span className='sr-only'>Toggle navigation</span>
-                <span className='icon-bar' />
-                <span className='icon-bar' />
-                <span className='icon-bar' />
-              </button>
-              <a className='navbar-brand' href='#'>Brand</a>
-            </div>
-            <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
-              <ul className='nav navbar-nav'>
-                <li className='active'><a href='/dist/stats.html'>Statistic<span className='sr-only'>(current)</span></a></li>
-                <li><a href='#'>Link</a></li>
-                <li className='dropdown'>
-                  <a href='#' className='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Dropdown<span className='caret' />
-                  </a>
-                  <ul className='dropdown-menu'>
-                    <li><a href='#'>Action</a></li>
-                    <li><a href='#'>Another action</a></li>
-                    <li><a href='#'>Something else here</a></li>
-                    <li><a href='#'>Separated link</a></li>
-                    <li><a href='#'>One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form className='navbar-form navbar-left'>
-                <div className='form-group'>
-                  <input type='text' className='form-control' placeholder='Search' />
-                </div>
-                <button type='submit' className='btn btn-default'>Submit</button>
-              </form>
-              <ul className='nav navbar-nav navbar-right'>
-                <li><a href='#'>Link</a></li>
-                <li className='dropdown'>
-                  <a href='#' className='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Dropdown <span className='caret' /></a>
-                  <ul className='dropdown-menu'>
-                    <li><a href='#'>Action</a></li>
-                    <li><a href='#'>Another action</a></li>
-                    <li><a href='#'>Something else here</a></li>
-                    <li><a href='#'>Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Router>
+        <Navbar color='indigo' dark expand='md' scrolling>
+          <NavbarBrand href='/'>
+            <strong>Navbar</strong>
+          </NavbarBrand>
+          {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
+          <Collapse isOpen={this.state.collapse} navbar>
+            <NavbarNav left>
+              <NavItem active>
+                <NavLink to='#'>Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to='#'>Features</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to='#'>Pricing</NavLink>
+              </NavItem>
+              <NavItem>
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                  <DropdownToggle nav caret>Dropdown</DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem href='#'>Action</DropdownItem>
+                    <DropdownItem href='#'>Another Action</DropdownItem>
+                    <DropdownItem href='#'>Something else here</DropdownItem>
+                    <DropdownItem href='#'>Something else here</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </NavItem>
+            </NavbarNav>
+            <NavbarNav right>
+              <NavItem>
+                <form className='form-inline md-form mt-0'>
+                  <input className='form-control mr-sm-2 mb-0 text-white' type='text' placeholder='Search' aria-label='Search' />
+                </form>
+              </NavItem>
+            </NavbarNav>
+          </Collapse>
+        </Navbar>
+      </Router>
     )
   }
 }

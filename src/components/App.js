@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Header from './header/header'
 import Content from './content/content'
-import Footer from './footer/footer'
+import FooterPage from './footer/footer'
 import './app.scss'
 import '../styles/app.scss'
 import 'mdbreact/dist/scss/mdb.scss'
@@ -24,7 +24,7 @@ class App extends Component {
       <main className='page-wrapper'>
         <Header />
         <Content />
-        <Footer />
+        <FooterPage />
       </main>
     )
   }
