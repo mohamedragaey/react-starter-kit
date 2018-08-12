@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Header from './header/header'
 import Content from './content/content'
 import FooterPage from './footer/footer'
-import './app.scss'
 import '../styles/app.scss'
 import 'mdbreact/dist/scss/mdb.scss'
 
