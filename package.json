@@ -1,7 +1,7 @@
 {
-  "name": "react-starter-kit",
+  "name": "Boilerplate",
   "version": "1.0.0",
-  "description": "React starter kit ",
+  "description": "Boilerplate for bootstrap3 ",
   "main": "src/js/script.js",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.prod.js",
@@ -9,19 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohamedragaey/react-starter-kit.git"
+    "url": "git+https://github.com/mohamedragaey/boilerplate.git"
   },
   "keywords": [
-    "react",
     "starterkit",
     "boilerplate"
   ],
   "author": "Mohamed Ragaey <mohamedragaey33@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mohamedragaey/react-starter-kit/issues"
+    "url": "https://github.com/mohamedragaey/boilerplate/issues"
   },
-  "homepage": "https://github.com/mohamedragaey/react-starter-kit#readme",
+  "homepage": "https://github.com/mohamedragaey/boilerplate#readme",
   "devDependencies": {
     "autoprefixer": "^8.6.0",
     "babel-cli": "^6.26.0",
@@ -35,8 +34,6 @@
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "cssnano": "^3.10.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
     "file-loader": "^1.1.11",
     "image-webpack-loader": "^4.3.0",
     "mini-css-extract-plugin": "^0.4.0",
@@ -59,7 +56,6 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.3",
     "bootstrap-sass": "^3.3.7",
     "bootstrap-sass-multi-directional": "^3.3.1",
-    "bootstrap-v4-multi-direction": "4.1.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "mappy-breakpoints": "^0.2.3",
