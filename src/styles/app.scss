@@ -14,3 +14,10 @@ Theme Styles
  */
 @import 'core/theme/layout';
 @import 'core/theme/loaders';
+/*
+Components Styles
+ */
+@import '../components/header/header';
+@import '../components/content/content';
+@import '../components/card/card';
+@import '../components/footer/footer';

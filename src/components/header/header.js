@@ -13,7 +13,6 @@ import {
   DropdownItem
 } from 'mdbreact'
 import {BrowserRouter as Router} from 'react-router-dom'
-import './header.scss'
 
 class Header extends Component {
   constructor (props) {

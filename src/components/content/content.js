@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import ErrorBoundary from './../ErrorBoundary'
 import Card from './../card/card'
-import './content.scss'
 
 class Content extends Component {
   render () {
