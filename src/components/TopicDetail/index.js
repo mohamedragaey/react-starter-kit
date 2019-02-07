@@ -1,1 +1,1 @@
-export { default as TopicDetail } from './TopicDetail';
+export { default as TopicDetail } from './TopicDetail'

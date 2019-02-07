@@ -1,12 +1,10 @@
 import React from 'react'
+import Content from '../../components/content/content'
 
 const Home = props => {
   return (
-    <div>
-      <h3>Home View</h3>
-    </div>
+    <Content />
   )
 }
 
 export default Home
-

@@ -1,5 +1,6 @@
 import React from 'react'
-import {Col, Container, Row, Footer} from 'mdbreact'
+import { Col, Container, Row, Footer } from 'mdbreact'
+import { Link } from 'react-router-dom'
 
 class FooterPage extends React.Component {
   render () {
@@ -14,10 +15,10 @@ class FooterPage extends React.Component {
             <Col sm='6'>
               <h5 className='title'>Links</h5>
               <ul>
-                <li className='list-unstyled'><a href='#!'>Link 1</a></li>
-                <li className='list-unstyled'><a href='#!'>Link 2</a></li>
-                <li className='list-unstyled'><a href='#!'>Link 3</a></li>
-                <li className='list-unstyled'><a href='#!'>Link 4</a></li>
+                <li className='list-unstyled'><Link to='/'>Home</Link></li>
+                <li className='list-unstyled'><Link to='About'>About</Link></li>
+                <li className='list-unstyled'><Link to='/Topics'>Topics</Link></li>
+                <li className='list-unstyled'><Link to='/404'>404</Link></li>
               </ul>
             </Col>
           </Row>
