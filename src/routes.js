@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { Home } from './views/Home'
-import { About } from './views/About'
-import { TopicList } from './views/TopicList'
-import { NoMatch } from './views/NoMatch'
+import { Home } from './pages/Home'
+import { About } from './pages/About'
+import { TopicList } from './pages/TopicList'
+import { NoMatch } from './pages/NoMatch'
 import { TopicDetail } from './components/TopicDetail'
 
 export const Routes = () => {
