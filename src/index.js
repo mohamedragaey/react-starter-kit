@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Routes } from './routes' // where we are going to specify our routes
 import registerServiceWorker from './registerServiceWorker'
-import './styles/app.scss'
+import './assets/styles/app.scss'
 import 'mdbreact/dist/scss/mdb.scss'
 import Header from './components/header/header'
 import FooterPage from './components/footer/footer'
