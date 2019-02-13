@@ -6,7 +6,7 @@ class FooterPage extends React.Component {
   render () {
     return (
       <Footer color='blue' className='font-small pt-4 mt-4'>
-        <Container fluid className='text-center text-md-left'>
+        <Container className='text-center text-md-left'>
           <Row>
             <Col sm='6'>
               <h5 className='title'>Footer Content</h5>

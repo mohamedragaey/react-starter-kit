@@ -2,7 +2,7 @@ import React from 'react'
 
 const NoMatch = () => {
   return (
-    <div className='error-page'>
+    <div className='container error-page'>
       <h3>Route not Found</h3>
     </div>
   )

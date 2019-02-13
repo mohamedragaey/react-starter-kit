@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const TopicList = ({ match }) => {
+const TopicList = ({match}) => {
   console.log(match.url)
   return (
-    <div>
+    <div className='container'>
       <h3>Topic List View</h3>
       <ul>
         <li>

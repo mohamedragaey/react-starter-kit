@@ -40,41 +40,43 @@ class Header extends Component {
   render () {
     return (
       <Navbar color='indigo' dark expand='md' scrolling>
-        <NavbarBrand href='/'>
-          <strong>Navbar</strong>
-        </NavbarBrand>
-        {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
-        <Collapse isOpen={this.state.collapse} navbar>
-          <NavbarNav left>
-            <NavItem active>
-              <NavLink to='/'>Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to='/About'>About</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to='/Topics'>Pricing</NavLink>
-            </NavItem>
-            <NavItem>
-              <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                <DropdownToggle nav caret>Dropdown</DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem href='#'>Action</DropdownItem>
-                  <DropdownItem href='#'>Another Action</DropdownItem>
-                  <DropdownItem href='#'>Something else here</DropdownItem>
-                  <DropdownItem href='#'>Something else here</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </NavItem>
-          </NavbarNav>
-          <NavbarNav right>
-            <NavItem>
-              <form className='form-inline md-form mt-0'>
-                <input className='form-control mr-sm-2 mb-0 text-white' type='text' placeholder='Search' aria-label='Search' />
-              </form>
-            </NavItem>
-          </NavbarNav>
-        </Collapse>
+        <div className='container'>
+          <NavbarBrand tag='div'>
+            <NavLink className='logo-link' to='/'>Home</NavLink>
+          </NavbarBrand>
+          {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
+          <Collapse isOpen={this.state.collapse} navbar>
+            <NavbarNav left>
+              <NavItem active>
+                <NavLink to='/'>Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to='/About'>About</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to='/Topics'>Pricing</NavLink>
+              </NavItem>
+              <NavItem>
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                  <DropdownToggle nav caret>Dropdown</DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem href='#'>Action</DropdownItem>
+                    <DropdownItem href='#'>Another Action</DropdownItem>
+                    <DropdownItem href='#'>Something else here</DropdownItem>
+                    <DropdownItem href='#'>Something else here</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </NavItem>
+            </NavbarNav>
+            <NavbarNav right>
+              <NavItem>
+                <form className='form-inline md-form mt-0'>
+                  <input className='form-control mr-sm-2 mb-0 text-white' type='text' placeholder='Search' aria-label='Search' />
+                </form>
+              </NavItem>
+            </NavbarNav>
+          </Collapse>
+        </div>
       </Navbar>
     )
   }

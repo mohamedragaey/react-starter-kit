@@ -1,3 +1,11 @@
-.navbar{
+.navbar {
   background-color: black;
+}
+
+.logo-link {
+  color: $white;
+  &:hover {
+    color: $white;
+    opacity: 0.75;
+  }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const TopicDetail = ({ match }) => {
+const TopicDetail = ({match}) => {
   return (
-    <div>
+    <div className='container'>
       <h3>{match.params.topicId}</h3>
       <ul>
         <li>
