@@ -73,6 +73,10 @@
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.3",
     "bootstrap-v4-multi-direction": "4.1.4",
-    "mappy-breakpoints": "^0.2.3"
+    "mappy-breakpoints": "^0.2.3",
+    "native-base": "^2.11.0",
+    "react-helmet": "^5.2.0",
+    "react-intl": "^2.8.0",
+    "react-redux": "^6.0.0"
   }
 }

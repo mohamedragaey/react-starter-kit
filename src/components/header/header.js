@@ -6,12 +6,10 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  NavLink,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
 } from 'mdbreact'
+import { FormattedMessage } from 'react-intl'
+import LanguageSwitch from '../languageSwitch'
 
 class Header extends Component {
   constructor (props) {
@@ -47,34 +45,11 @@ class Header extends Component {
           {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
-              <NavItem active>
-                <NavLink to='/'>Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to='/About'>About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to='/Topics'>Pricing</NavLink>
-              </NavItem>
-              <NavItem>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                  <DropdownToggle nav caret>Dropdown</DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem href='#'>Action</DropdownItem>
-                    <DropdownItem href='#'>Another Action</DropdownItem>
-                    <DropdownItem href='#'>Something else here</DropdownItem>
-                    <DropdownItem href='#'>Something else here</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
+              <NavItem><NavLink to='/'><FormattedMessage id='home.nav.home' /></NavLink></NavItem>
+              <NavItem><NavLink to='/About'><FormattedMessage id='home.nav.about' /></NavLink></NavItem>
+              <NavItem><NavLink to='/Topics'><FormattedMessage id='home.nav.topics' /></NavLink></NavItem>
             </NavbarNav>
-            <NavbarNav right>
-              <NavItem>
-                <form className='form-inline md-form mt-0'>
-                  <input className='form-control mr-sm-2 mb-0 text-white' type='text' placeholder='Search' aria-label='Search' />
-                </form>
-              </NavItem>
-            </NavbarNav>
+            <NavbarNav right><LanguageSwitch /></NavbarNav>
           </Collapse>
         </div>
       </Navbar>
