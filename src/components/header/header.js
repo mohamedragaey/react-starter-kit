@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {
   Navbar,
   NavbarBrand,
@@ -6,14 +6,10 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  NavLink,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
 } from 'mdbreact'
-import {BrowserRouter as Router} from 'react-router-dom'
-import './header.scss'
+import { FormattedMessage } from 'react-intl'
+import LanguageSwitch from '../languageSwitch'
 
 class Header extends Component {
   constructor (props) {
@@ -41,45 +37,22 @@ class Header extends Component {
 
   render () {
     return (
-      <Router>
-        <Navbar color='indigo' dark expand='md' scrolling>
-          <NavbarBrand href='/'>
-            <strong>Navbar</strong>
+      <Navbar color='indigo' dark expand='md' scrolling>
+        <div className='container'>
+          <NavbarBrand tag='div'>
+            <NavLink className='logo-link' to='/'>Home</NavLink>
           </NavbarBrand>
           {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
-              <NavItem active>
-                <NavLink to='#'>Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to='#'>Features</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to='#'>Pricing</NavLink>
-              </NavItem>
-              <NavItem>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                  <DropdownToggle nav caret>Dropdown</DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem href='#'>Action</DropdownItem>
-                    <DropdownItem href='#'>Another Action</DropdownItem>
-                    <DropdownItem href='#'>Something else here</DropdownItem>
-                    <DropdownItem href='#'>Something else here</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
+              <NavItem><NavLink to='/'><FormattedMessage id='home.nav.home' /></NavLink></NavItem>
+              <NavItem><NavLink to='/About'><FormattedMessage id='home.nav.about' /></NavLink></NavItem>
+              <NavItem><NavLink to='/Topics'><FormattedMessage id='home.nav.topics' /></NavLink></NavItem>
             </NavbarNav>
-            <NavbarNav right>
-              <NavItem>
-                <form className='form-inline md-form mt-0'>
-                  <input className='form-control mr-sm-2 mb-0 text-white' type='text' placeholder='Search' aria-label='Search' />
-                </form>
-              </NavItem>
-            </NavbarNav>
+            <NavbarNav right><LanguageSwitch /></NavbarNav>
           </Collapse>
-        </Navbar>
-      </Router>
+        </div>
+      </Navbar>
     )
   }
 }

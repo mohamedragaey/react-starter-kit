@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import './card.scss'
 
 class Card extends Component {
   render () {
