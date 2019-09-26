@@ -1,3 +1,6 @@
+### Prerequisites
+Make sure you use node v 12.11.0
+
 ### Installation
 * First clone the boilerplate into your machine 
 
