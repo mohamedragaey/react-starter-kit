@@ -51,9 +51,9 @@ module.exports = {
         exclude: ['node_modules'],
         use: [
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',  // translates CSS into CommonJS
+          'css-loader', // translates CSS into CommonJS
           'postcss-loader',
-          'sass-loader', // compiles Sass to CSS
+          'sass-loader' // compiles Sass to CSS
         ]
       },
 
@@ -66,7 +66,7 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'images/'
-            },
+            }
           },
           {
             loader: 'image-webpack-loader',
@@ -77,20 +77,20 @@ module.exports = {
                 quality: 65
               },
               optipng: {
-                enabled: true,
+                enabled: true
               },
               pngquant: {
                 quality: '65-90',
                 speed: 4
               },
               gifsicle: {
-                interlaced: false,
+                interlaced: false
               },
               webp: {
                 quality: 75
               }
-            },
-          },
+            }
+          }
         ]
       },
 
@@ -114,15 +114,15 @@ module.exports = {
     new WebpackRTLPlugin({
       filename: 'css/app-rtl.css',
       diffOnly: false,
-      minify: process.env.NODE_ENV === 'production',
+      minify: process.env.NODE_ENV === 'production'
     }),
 
     new CopyWebpackPlugin([
-        {from: 'src/fonts', to: './fonts'},
-        {from: 'src/images', to: './images'},
-        {from: 'src/favicon', to: './favicon'}
-      ],
-      {copyUnmodified: false}),
+      {from: 'src/fonts', to: './fonts'},
+      {from: 'src/images', to: './images'},
+      {from: 'src/favicon', to: './favicon'}
+    ],
+    {copyUnmodified: false}),
 
     new Visualizer(),
 
