@@ -1,22 +1,28 @@
-### Demo
-You can find demo here [Demo](https://mohamedragaey.github.io/boilerplate/).
 ### Installation
 * First clone the boilerplate into your machine 
 
-`git clone https://github.com/mohamedragaey/boilerplate.git   `
+```bash
+git clone https://github.com/mohamedragaey/boilerplate.git
+```
 
 * Then navigate to the downloaded boilerplate
 
-`cd boilerplate`
+```bash 
+cd boilerplate
+```
+
 * Then open a terminal and install required packages using `yarn` or `npm`
 
-* If `yarn` run
- `yarn` 
-* If `npm` run `npm install`
+```bash
+yarn || npm install
+```
 
 ### Usage
 
-To start the development server run `yarn start` or run `npm run start`.
+To start the development server run 
+```bash
+yarn start || npm run start
+```
 
 It will open a new tab in the browser if this didn't happen navigate to this address 
 [http://localhost:8080/](http://localhost:8080/)
@@ -76,15 +82,11 @@ If you need to know more about what each plugin do you can go to the links assoc
 
 * [copy-webpack-plugin](https://www.npmjs.com/package/copy-webpack-plugin)
 
-* [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
-
 * [mini-css-extract-plugin](https://www.npmjs.com/package/mini-css-extract-plugin)
 
 * [uglifyjs-webpack-plugin](https://www.npmjs.com/package/uglifyjs-webpack-plugin)
 
 * [webpack-visualizer-plugin](https://www.npmjs.com/package/webpack-visualizer-plugin)
-
-* [webpack-dashboard-plugin](https://www.npmjs.com/package/webpack-dashboard)
 
  
 ### loaders used in this Boilerplate
