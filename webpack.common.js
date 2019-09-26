@@ -1,10 +1,8 @@
 const path = require('path')
-const CleanWebPackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackRTLPlugin = require('webpack-rtl-plugin')
 const Visualizer = require('webpack-visualizer-plugin')
-const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = {
 
@@ -14,7 +12,7 @@ module.exports = {
 
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(process.cwd(), 'dist'),
     publicPath: '/dist/'
   },
 
@@ -25,7 +23,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.jsx?$/,
         loader: 'standard-loader',
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         options: {
           // Emit errors instead of warnings (default = false)
           error: false,
@@ -39,7 +37,7 @@ module.exports = {
       // Rule For JS
       {
         test: /\.js$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/,
         use: [{
           loader: 'babel-loader'
         }]
@@ -48,7 +46,7 @@ module.exports = {
       // Rule For SCSS/SASS/CSS
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/,
         use: [
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader', // translates CSS into CommonJS
@@ -107,9 +105,7 @@ module.exports = {
   },
   plugins: [
 
-    new CleanWebPackPlugin(['dist']),
-
-    new MiniCssExtractPlugin({filename: 'css/app.css', chunkFilename: 'css/app.css'}),
+    new MiniCssExtractPlugin({ filename: 'css/app.css', chunkFilename: 'css/app.css' }),
 
     new WebpackRTLPlugin({
       filename: 'css/app-rtl.css',
@@ -118,14 +114,12 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([
-      {from: 'src/fonts', to: './fonts'},
-      {from: 'src/images', to: './images'},
-      {from: 'src/favicon', to: './favicon'}
+      { from: 'src/fonts', to: './fonts' },
+      { from: 'src/images', to: './images' },
+      { from: 'src/favicon', to: './favicon' }
     ],
-    {copyUnmodified: false}),
+    { copyUnmodified: false }),
 
-    new Visualizer(),
-
-    new DashboardPlugin()
+    new Visualizer()
   ]
 }
