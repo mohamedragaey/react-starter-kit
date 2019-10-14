@@ -27,7 +27,7 @@ To start the development server run
 yarn start || npm run start
 ```
 
-It will open a new tab in the browser if this didn't happen navigate to this address 
+It will open a new tab in the browser if this didn't happen navigate to this address
 [http://localhost:8080/](http://localhost:8080/)
 
 ### Boilerplate Structure
