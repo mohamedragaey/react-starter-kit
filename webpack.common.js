@@ -1,10 +1,8 @@
 const path = require('path')
-const CleanWebPackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackRTLPlugin = require('webpack-rtl-plugin')
 const Visualizer = require('webpack-visualizer-plugin')
-const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = {
 
@@ -52,7 +50,7 @@ module.exports = {
       // Rule For JS
       {
         test: /\.js$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/,
         use: [{
           loader: 'babel-loader'
         }]
@@ -61,7 +59,7 @@ module.exports = {
       // Rule For SCSS/SASS/CSS
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/,
         use: [
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader', // translates CSS into CommonJS
@@ -120,8 +118,6 @@ module.exports = {
   },
   plugins: [
 
-    new CleanWebPackPlugin(['dist']),
-
     new MiniCssExtractPlugin({filename: '[name].css', chunkFilename: 'css/app.css'}),
 
     new WebpackRTLPlugin({
@@ -131,14 +127,12 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([
-      {from: 'src/assets/fonts', to: './fonts'},
-      {from: 'src/assets/images', to: './images'},
-      {from: 'src/assets/favicon', to: './favicon'}
-    ],
-    {copyUnmodified: false}),
+        {from: 'src/assets/fonts', to: './fonts'},
+        {from: 'src/assets/images', to: './images'},
+        {from: 'src/assets/favicon', to: './favicon'}
+      ],
+      {copyUnmodified: false}),
 
-    new Visualizer(),
-
-    new DashboardPlugin()
+    new Visualizer()
   ]
 }

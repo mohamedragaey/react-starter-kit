@@ -1,14 +1,4 @@
 import React, { Component } from 'react'
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavbarToggler,
-  Collapse,
-  NavItem,
-  NavLink
-} from 'mdbreact'
-import { FormattedMessage } from 'react-intl'
 import LanguageSwitch from '../languageSwitch'
 
 class Header extends Component {
@@ -37,22 +27,9 @@ class Header extends Component {
 
   render () {
     return (
-      <Navbar color='indigo' dark expand='md' scrolling>
-        <div className='container'>
-          <NavbarBrand tag='div'>
-            <NavLink className='logo-link' to='/'>Home</NavLink>
-          </NavbarBrand>
-          {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
-          <Collapse isOpen={this.state.collapse} navbar>
-            <NavbarNav left>
-              <NavItem><NavLink to='/'><FormattedMessage id='home.nav.home' /></NavLink></NavItem>
-              <NavItem><NavLink to='/About'><FormattedMessage id='home.nav.about' /></NavLink></NavItem>
-              <NavItem><NavLink to='/Topics'><FormattedMessage id='home.nav.topics' /></NavLink></NavItem>
-            </NavbarNav>
-            <NavbarNav right><LanguageSwitch /></NavbarNav>
-          </Collapse>
-        </div>
-      </Navbar>
+      <div className='container'>
+        <LanguageSwitch />
+      </div>
     )
   }
 }

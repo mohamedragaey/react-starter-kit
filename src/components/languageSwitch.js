@@ -6,7 +6,7 @@ const LanguageSwitch = () => (
     {({switchToEnglish, switchToArabic}) => (
       <React.Fragment>
         <button onClick={switchToEnglish}> English</button>
-        <button onClick={switchToArabic}>Arabic</button>
+        <button onClick={switchToArabic}>عربي</button>
       </React.Fragment>
     )}
   </IntlConsumer>

@@ -1,12 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import ar from 'react-intl/locale-data/ar'
-import en from 'react-intl/locale-data/en'
 import arMessages from './translations/ar.json'
 import enMessages from './translations/en.json'
-import { IntlProvider, addLocaleData } from 'react-intl'
-
-addLocaleData([...en, ...ar])
+import { IntlProvider } from 'react-intl'
 
 const {Provider, Consumer} = React.createContext()
 

@@ -1,19 +1,12 @@
 /*
-Core Styles
- */
-@import "core/_variables-custom";
-@import "core/_mixins-custom";
-@import "core/_bootstrap-custom";
-@import "core/_responsive-align";
-/*
 Plugins styles
  */
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome";
 /*
 Theme Styles
  */
-@import 'core/theme/layout';
-@import 'core/theme/loaders';
+@import 'theme/layout';
+@import 'theme/loaders';
 /*
 Components Styles
  */

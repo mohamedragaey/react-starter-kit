@@ -76,15 +76,11 @@ If you need to know more about what each plugin do you can go to the links assoc
 
 * [copy-webpack-plugin](https://www.npmjs.com/package/copy-webpack-plugin)
 
-* [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin)
-
 * [mini-css-extract-plugin](https://www.npmjs.com/package/mini-css-extract-plugin)
 
-* [uglifyjs-webpack-plugin](https://www.npmjs.com/package/uglifyjs-webpack-plugin)
+* [terser-webpack-plugin](https://www.npmjs.com/package/terser-webpack-plugin)
 
 * [webpack-visualizer-plugin](https://www.npmjs.com/package/webpack-visualizer-plugin)
-
-* [webpack-dashboard-plugin](https://www.npmjs.com/package/webpack-dashboard)
 
  
 ### loaders used in this Boilerplate
