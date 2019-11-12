@@ -81,7 +81,7 @@ if you need to know more about how to configure your own webpack build process c
 ### Plugins used in this Boilerplate
 If you need to know more about what each plugin do you can go to the links associated with each plugin.
 
-* [webpack-rtl-plugin](https://www.npmjs.com/package/webpack-rtl-plugin)
+* [rtlcss-webpack-plugin](https://www.npmjs.com/package/rtlcss-webpack-plugin)
 
 * [copy-webpack-plugin](https://www.npmjs.com/package/copy-webpack-plugin)
 

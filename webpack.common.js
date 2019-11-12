@@ -1,7 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const WebpackRTLPlugin = require('webpack-rtl-plugin')
+const RtlCssPlugin = require('rtlcss-webpack-plugin')
 const Visualizer = require('webpack-visualizer-plugin')
 
 module.exports = {
@@ -105,17 +105,13 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({filename: 'css/app.css', chunkFilename: 'css/app.css'}),
-    new WebpackRTLPlugin({
-      filename: 'css/app-rtl.css',
-      diffOnly: false,
-      minify: process.env.NODE_ENV === 'production'
-    }),
+    new RtlCssPlugin('app-rtl.css'),
     new CopyWebpackPlugin([
         {from: 'src/fonts', to: './fonts'},
         {from: 'src/images', to: './images'},
         {from: 'src/favicon', to: './favicon'}
       ],
       {copyUnmodified: false}),
-    new Visualizer(),
+    new Visualizer()
   ]
 }
