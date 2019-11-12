@@ -30,14 +30,14 @@
   },
   "homepage": "https://github.com/mohamedragaey/boilerplate#readme",
   "devDependencies": {
-    "@babel/core": "^7.7.0",
+    "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
     "autoprefixer": "^9.7.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "copy-webpack-plugin": "^5.0.4",
+    "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
     "enzyme": "^3.10.0",
@@ -69,9 +69,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "mappy-breakpoints": "^0.2.3",
-    "mdbreact": "^4.22.0",
+    "mdbreact": "^4.22.1",
     "react-helmet": "^5.2.1",
-    "react-intl": "^3.4.0",
+    "react-intl": "^3.5.0",
     "react-redux": "^7.1.3"
   }
 }
