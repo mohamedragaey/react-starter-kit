@@ -105,7 +105,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({filename: 'css/app.css', chunkFilename: 'css/app.css'}),
-    new RtlCssPlugin('app-rtl.css'),
+    new RtlCssPlugin('css/app-rtl.css'),
     new CopyWebpackPlugin([
         {from: 'src/fonts', to: './fonts'},
         {from: 'src/images', to: './images'},
