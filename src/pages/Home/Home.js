@@ -1,9 +1,11 @@
 import React from 'react'
-import Content from '../../components/content/content'
+import DemoComponent from '../../components/DemoComponent'
 
-const Home = props => {
+const Home = () => {
   return (
-    <Content />
+    <>
+      <DemoComponent/>
+    </>
   )
 }
 

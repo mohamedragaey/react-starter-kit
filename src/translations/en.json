@@ -1,6 +1,12 @@
 {
-  "home.welcome": "Welcome Ragaey",
-  "home.nav.home": "home",
-  "home.nav.about": "about us",
-  "home.nav.topics": "topics"
+  "welcome": "Welcome",
+  "Home": "Home",
+  "not_found": "404 - Page Not Found",
+  "All rights reserved by": "All rights reserved by",
+  "Arkdev": "Arkdev",
+  "Ar": "Ar",
+  "De": "De",
+  "En": "En",
+  "DemoTitle": "Welcome To This Boilerplate",
+  "DemoDescription": "Progressively incubate strategic collaboration and idea-sharing before business manufactured products. Holisticly leverage existing flexible relationships without extensible content. Enthusiastically communicate intuitive methods of empowerment rather than emerging technology. Uniquely conceptualize quality results before innovative communities. Phosfluorescently matrix quality outsourcing and client-focused internal or \"organic\" sources.\n\nIntrinsicly coordinate cross-media expertise via frictionless synergy. Globally incubate intermandated scenarios with effective action items. Distinctively underwhelm installed base growth strategies via revolutionary benefits. Collaboratively synergize integrated infomediaries with premium opportunities. Credibly matrix viral meta-services whereas wireless sources."
 }

@@ -1,10 +1,11 @@
 import React from 'react'
+import NotFound from '../../components/NotFound'
 
 const NoMatch = () => {
   return (
-    <div className='container error-page'>
-      <h3>Route not Found</h3>
-    </div>
+    <>
+      <NotFound/>
+    </>
   )
 }
 

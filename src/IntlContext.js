@@ -1,46 +1,71 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { IntlProvider } from 'react-intl'
 import arMessages from './translations/ar.json'
 import enMessages from './translations/en.json'
-import { IntlProvider } from 'react-intl'
+import GoogleFonts, { Cairo, Lato } from './utils/Fonts'
 
-const {Provider, Consumer} = React.createContext()
+const { Provider, Consumer } = React.createContext()
 
 class IntlProviderWrapper extends React.Component {
   constructor (...args) {
     super(...args)
 
-    this.switchToEnglish = () =>
-      this.setState({locale: 'en', messages: enMessages, styleSheet: 'dist/css/app.css', dir: 'ltr'})
+    GoogleFonts()
 
-    this.switchToArabic = () =>
-      this.setState({locale: 'ar', messages: arMessages, styleSheet: 'dist/css/app-rtl.css', dir: 'rtl'})
+    this.switchToEnglish = () => {
+      this.setState({ locale: 'en', messages: enMessages, dir: 'ltr' })
+      localStorage.setItem('AppLanguage', 'en')
+      localStorage.setItem('AppDirection', 'ltr')
+      localStorage.setItem('AppFontName', Lato)
+    }
 
-    // pass everything in state to avoid creating object inside render method
+    this.switchToArabic = () => {
+      this.setState({ locale: 'ar', messages: arMessages, dir: 'rtl' })
+      localStorage.setItem('AppLanguage', 'ar')
+      localStorage.setItem('AppDirection', 'rtl')
+      localStorage.setItem('AppFontName', Cairo)
+    }
+
     this.state = {
-      locale: 'en',
-      messages: enMessages,
-      styleSheet: 'dist/css/app.css',
-      dir: 'ltr',
-      switchToEnglish: this.switchToEnglish,
-      switchToArabic: this.switchToArabic
+      dir: 'rtl',
+      locale: 'ar',
+      font: Cairo,
+      messages: arMessages,
+      loading: true,
+      switchToArabic: this.switchToArabic,
+      switchToEnglish: this.switchToEnglish
     }
   }
 
+  getAppLanguage = async () => {
+    let lang = await localStorage.getItem('AppLanguage') ? await localStorage.getItem('AppLanguage') : this.state.locale
+    let dir = await localStorage.getItem('AppDirection') ? await localStorage.getItem('AppDirection') : this.state.dir
+    let font = await localStorage.getItem('AppFontName') ? await localStorage.getItem('AppFontName') : this.state.font
+    lang === 'ar' ? this.setState({ messages: arMessages }) : this.setState({ messages: enMessages })
+    this.setState({ locale: lang, dir: dir, font: font })
+  }
+
+  componentWillMount () {
+    this.getAppLanguage()
+  }
+
   render () {
-    const {children} = this.props
-    const {locale, messages, styleSheet, dir} = this.state
+    let title = 'Arkdev'
+    const { children } = this.props
+    const { locale, messages, dir } = this.state
     return (
       <Provider value={this.state}>
         <Helmet>
-          <html lang={locale} dir={dir} />
-          <link type='text/css' rel='stylesheet' href={styleSheet} />
+          <html lang={locale} dir={dir}/>
+          <body dir={dir}/>
+          <title>{title}</title>
         </Helmet>
         <IntlProvider
           key={locale}
           locale={locale}
           messages={messages}
-          defaultLocale='en'
+          defaultLocale='ar'
         >
           {children}
         </IntlProvider>

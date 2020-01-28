@@ -1,26 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { Routes } from './routes' // where we are going to specify our routes
-import './assets/styles/app.scss'
-import Header from './components/header/header'
-import FooterPage from './components/footer/footer'
 import { IntlProvider } from './IntlContext'
+import * as serviceWorker from './serviceWorker'
+import DirectionProvider from './components/DirectionProvider'
+import Layout from './components/Layout'
 
 ReactDOM.render(
   <IntlProvider>
-    <Router>
-      <main className='page-wrapper'>
-        <Header />
-        <div className='content'>
-          <Routes />
-        </div>
-        <FooterPage />
-      </main>
-    </Router>
+    <DirectionProvider>
+      <Layout/>
+    </DirectionProvider>
   </IntlProvider>,
-  document.getElementById('app')
+  document.getElementById('root')
 )
-if (process.env.NODE_ENV !== 'production') {
-  console.log('we are in development mode')
-}
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.register()
